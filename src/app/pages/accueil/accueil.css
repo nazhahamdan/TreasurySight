@@ -67,8 +67,25 @@ nav a{
   border:none;
   border-radius:30px;
   font-size:15px;
-  width: 150px;
+  width:150px;
+  cursor:pointer;
+  transition: all 0.2s ease;
 }
+
+/* effet hover */
+
+.btn-primary:hover{
+  background:#0d1640;
+  transform: translateY(-2px);
+}
+
+/* effet click */
+
+.btn-primary:active{
+  transform: scale(0.95);
+}
+
+
 
 .btn-outline{
   padding:12px 28px;
@@ -76,8 +93,22 @@ nav a{
   border:2px solid #070e27;
   background:transparent;
   font-size:15px;
-  margin-left: 10px;
-  width: 150px;
+  margin-left:10px;
+  width:150px;
+  cursor:pointer;
+  transition: all 0.2s ease;
+}
+
+/* effet hover */
+
+.btn-outline:hover{
+  transform: translateY(-2px);
+}
+
+/* effet click */
+
+.btn-outline:active{
+  transform: scale(0.95);
 }
 
 

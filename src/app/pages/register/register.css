@@ -1,0 +1,64 @@
+.register-container{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:#f6f7fb;
+  font-family:'Inter', sans-serif;
+  gap:80px;
+}
+
+/* carte du formulaire */
+
+.register-card{
+  width:350px;
+  background:white;
+  padding:40px;
+  border-radius:12px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+.register-card h2{
+  text-align:center;
+  margin-bottom:30px;
+}
+
+/* champs */
+
+.form-group{
+  margin-bottom:15px;
+}
+
+.form-group input,
+.form-group select{
+  width:100%;
+  padding:12px;
+  border:1px solid #ddd;
+  border-radius:8px;
+  font-size:14px;
+}
+
+/* bouton */
+
+.register-btn{
+  width:100%;
+  padding:12px;
+  background:#07024d;
+  border-radius:8px;
+  color:rgb(255, 255, 255);
+  font-size:15px;
+  cursor:pointer;
+  margin-top:10px;
+  transition:0.3s;
+  border:none;
+}
+
+.register-btn:hover{
+  transform: translateY(-2px);
+}
+
+/* image */
+
+.image-section img{
+  width:420px;
+}
