@@ -6,7 +6,7 @@ import { Login } from './pages/login/login';
 import { Register } from './pages/register/register';
 
 export const routes: Routes = [
-  {path:'acceuil',component:Accueil},
+  {path:'',component:Accueil},
   {path:'login',component:Login},
   {path:'register',component:Register}
 ];

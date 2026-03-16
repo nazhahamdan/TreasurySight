@@ -3,8 +3,7 @@
   display:flex;
   justify-content:center;
   align-items:center;
-  background:#f6f7fb;
-  font-family:'Inter', sans-serif;
+  background:white;
   gap:80px;
 }
 
@@ -12,15 +11,16 @@
 
 .register-card{
   width:350px;
+  height: 480px;
   background:white;
-  padding:40px;
+  padding:30px;
   border-radius:12px;
   box-shadow:0 10px 30px rgba(0,0,0,0.08);
 }
 
 .register-card h2{
   text-align:center;
-  margin-bottom:30px;
+  margin-bottom:20px;
 }
 
 /* champs */
@@ -43,8 +43,8 @@
 .register-btn{
   width:100%;
   padding:12px;
-  background:#07024d;
-  border-radius:8px;
+  background:#070e27;
+  border-radius:30px;
   color:rgb(255, 255, 255);
   font-size:15px;
   cursor:pointer;
@@ -53,7 +53,9 @@
   border:none;
 }
 
+
 .register-btn:hover{
+  background: #0d1640;
   transform: translateY(-2px);
 }
 
@@ -61,4 +63,19 @@
 
 .image-section img{
   width:420px;
+}
+
+.text-center{
+  text-align:center;
+  margin-top:15px;
+}
+
+.text-center a{
+  color:#070e27;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+.text-center a:hover{
+  text-decoration:underline;
 }

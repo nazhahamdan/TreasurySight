@@ -4,14 +4,14 @@
 
     <h2>Se connecter</h2>
 
-    <form >
+    <form  [formGroup]="loginForm" (ngSubmit)="login()">
 
       <div class="form-group">
-        <input formControlName="usernameOrEmail" type="text" placeholder="Nom d'utilisateur ou Email">
+        <input formControlName="usernameOrEmail" type="text" placeholder="Nom d'utilisateur ou Email" formControlName="username">
       </div>
 
       <div class="form-group">
-        <input formControlName="mot_de_passe" type="password" placeholder="Mot de passe">
+        <input formControlName="mot_de_passe" type="password" placeholder="Mot de passe" formControlName="password">
       </div>
 
       <button type="submit" class="login-btn">Se connecter</button>

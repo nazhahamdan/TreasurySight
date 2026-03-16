@@ -4,34 +4,37 @@
 
     <h2>Créer un compte</h2>
 
-    <form>
+    <form [formGroup]="registerForm" (ngSubmit)="register()">
 
       <div class="form-group">
-        <input type="text" placeholder="Prénom" required>
+        <input type="text" placeholder="Prénom" required formControlName="prenom">
       </div>
 
       <div class="form-group">
-        <input type="text" placeholder="Nom" required>
+        <input type="text" placeholder="Nom" required formControlName="nom">
       </div>
 
       <div class="form-group">
-        <input type="email" placeholder="Email" required>
+        <input type="email" placeholder="Email" required formControlName="email">
       </div>
 
       <div class="form-group">
-    <input type="text" placeholder="Nom de l'entreprise" required>
+    <input type="text" placeholder="Nom de l'entreprise" required formControlName="nom_entreprise">
   </div>
 
   <div class="form-group">
-    <input type="text" placeholder="Secteur d'activité" required>
+    <input type="text" placeholder="Secteur d'activité" required formControlName="secteur_entreprise">
   </div>
 
 
       <div class="form-group">
-        <input type="password" placeholder="Mot de passe" required>
+        <input type="password" placeholder="Mot de passe" required formControlName="password">
       </div>
 
-      <button class="register-btn">Créer un compte</button>
+      <button class="register-btn" type="submit">Créer un compte</button>
+      <p class="text-center">
+        Vous avez déjà compte ? <a routerLink="/login">Se connecter</a>
+      </p>
 
     </form>
 

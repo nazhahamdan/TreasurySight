@@ -1,42 +1,42 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
+import { Auth } from '../../services/auth';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-register',
-  imports: [RouterLink],
+  imports: [RouterLink,ReactiveFormsModule],
   templateUrl: './register.html',
   styleUrl: './register.css',
 })
 export class Register {
-  registerForm: FormGroup;
+  constructor(private authService:Auth){};
 
-  constructor(private fb: FormBuilder) {
-    this.registerForm = this.fb.group({
-      prenom: ['', Validators.required],
-      nom: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
+  registerForm=new FormGroup({
+    nom:new FormControl('',),
+    prenom:new FormControl(''),
+    email:new FormControl('',[Validators.email,Validators.required]),
+    nom_entreprise:new FormControl(''),
+    secteur_entreprise:new FormControl(''),
+    password:new FormControl('',[Validators.minLength(8),Validators.required,Validators.pattern('^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*]).{8,}$')]),
+  })
 
-      mot_de_passe: ['', [
-        Validators.required,
-        Validators.minLength(8),
-        Validators.pattern(/^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])/)
-      ]],
-
-      role: ['', Validators.required],
-      entreprise_nom: ['', Validators.required],
-      entreprise_secteur: ['', Validators.required],
-      entreprise_devise: ['', Validators.required]
+  register() {
+  if (this.registerForm.valid) {
+    console.log('Formulaire valide');
+    this.authService.register(this.registerForm.value).subscribe({
+      next: (res) => console.log('Utilisateur créé', res),
+      error: (err) => console.error('Erreur', err)
     });
-  }
 
-  onSubmit() {
-    if (this.registerForm.valid) {
-      console.log(this.registerForm.value);
-      // envoyer au backend
-    } else {
-      this.registerForm.markAllAsTouched(); // pour montrer les erreurs
-    }
+  } else {
+    console.log("Formulaire invalide");
+    // On peut marquer tous les champs comme "touched" pour afficher les erreurs
+    this.registerForm.markAllAsTouched();
   }
+}
+
+
 
 }
