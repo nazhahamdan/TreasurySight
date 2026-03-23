@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { Auth } from '../../services/auth';
 import { HttpClient } from '@angular/common/http';
 
@@ -11,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrl: './register.css',
 })
 export class Register {
-  constructor(private authService:Auth){};
+  constructor(private authService:Auth,private router:Router){};
 
   registerForm=new FormGroup({
     nom:new FormControl('',),
@@ -26,8 +26,17 @@ export class Register {
   if (this.registerForm.valid) {
     console.log('Formulaire valide');
     this.authService.register(this.registerForm.value).subscribe({
-      next: (res) => console.log('Utilisateur créé', res),
-      error: (err) => console.error('Erreur', err)
+      next: (response: any) => {
+        // 1 Stocker le token JWT
+        localStorage.setItem('token', response.token);
+        // 2 Rediriger vers le dashboard
+        this.router.navigate(['/dashboard']);
+
+      },
+      error: (err) => {
+        console.error('Erreur login', err);
+        alert('Email ou mot de passe incorrect');
+      }
     });
 
   } else {
