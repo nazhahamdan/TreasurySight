@@ -35,7 +35,6 @@ export class Register {
       },
       error: (err) => {
         console.error('Erreur login', err);
-        alert('Email ou mot de passe incorrect');
       }
     });
 

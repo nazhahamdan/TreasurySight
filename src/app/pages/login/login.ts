@@ -13,7 +13,7 @@ import { HttpBackend, HttpClient } from '@angular/common/http';
 export class Login {
   constructor(private authService:Auth,private router:Router){};
   loginForm=new FormGroup({
-    username:new FormControl(''),
+    email:new FormControl(''),
     password:new FormControl('')
   })
 
