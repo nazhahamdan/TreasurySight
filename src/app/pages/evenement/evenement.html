@@ -1,0 +1,130 @@
+  <app-navbar></app-navbar>
+<div class="events-page">
+
+
+  <!-- HEADER -->
+  <div class="events-header">
+
+    <!-- BOUTONS -->
+    <div class="filters">
+      <button
+        class="filter-btn"
+        [class.active]="activeTab === 'clients'"
+        (click)="activeTab = 'clients'">
+        Clients
+      </button>
+
+      <button
+        class="filter-btn"
+        [class.active]="activeTab === 'fournisseurs'"
+        (click)="activeTab = 'fournisseurs'">
+        Fournisseurs
+      </button>
+
+      <button
+        class="filter-btn"
+        [class.active]="activeTab === 'evenements'"
+        (click)="activeTab = 'evenements'">
+        Événements
+      </button>
+
+      <span class="total">Total : 3</span>
+    </div>
+
+    <!-- SEARCH -->
+    <div class="search-add">
+      <label class="search-box">
+        <input type="text" placeholder="Rechercher ici...">
+      </label>
+      <button class="btn-settings">&#9881;</button>
+      <button class="btn-download">&#128229;</button>
+    </div>
+
+  </div>
+  <div class="card">
+
+  <!-- ================= CLIENTS ================= -->
+  <table *ngIf="activeTab === 'clients'" class="events-table">
+    <thead>
+    <tr>
+        <th><input type="checkbox"></th>
+        <th>N°FACTURE</th>
+        <th>ÉCHÉANCE</th>
+        <th>DESCRIPTION</th>
+        <th>CATÉGORIE</th>
+        <th>STATUT</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="cursor:pointer">
+        <td><input type="checkbox"></td>
+        <td>003</td>
+        <td>29/03/2025</td>
+        <td>Exemple</td>
+        <td>Fournisseurs</td>
+        <td>En cours</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ================= FOURNISSEURS ================= -->
+  <table *ngIf="activeTab === 'fournisseurs'" class="events-table">
+    <thead>
+      <tr>
+        <th><input type="checkbox"></th>
+        <th>N°FACTURE</th>
+        <th>ÉCHÉANCE</th>
+        <th>DESCRIPTION</th>
+        <th>CATÉGORIE</th>
+        <th>STATUT</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="cursor:pointer">
+        <td><input type="checkbox"></td>
+        <td>003</td>
+        <td>29/03/2025</td>
+        <td>Exemple</td>
+        <td>Fournisseurs</td>
+        <td>En cours</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ================= EVENEMENTS ================= -->
+  <table *ngIf="activeTab === 'evenements'" class="events-table">
+    <thead>
+      <tr >
+        <th><input type="checkbox"></th>
+        <th>N°FACTURE</th>
+        <th>ÉCHÉANCE</th>
+        <th>DESCRIPTION</th>
+        <th>CATÉGORIE</th>
+        <th>STATUT</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="cursor:pointer">
+        <td><input type="checkbox"></td>
+        <td>003</td>
+        <td>29/03/2025</td>
+        <td>Exemple</td>
+        <td>Fournisseurs</td>
+        <td>En cours</td>
+      </tr>
+      <tr style="cursor:pointer">
+        <td><input type="checkbox"></td>
+        <td>002</td>
+        <td class="overdue">23/03/2025</td>
+        <td>ABC</td>
+        <td>Achats de marchandises (B)</td>
+        <td>En retard</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- BOUTON -->
+  <button class="btn-add">+ Ajouter un événement</button>
+  </div>
+
+</div>
